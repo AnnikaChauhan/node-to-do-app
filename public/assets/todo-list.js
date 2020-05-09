@@ -2,6 +2,7 @@ $(document).ready(function(){
 
     $('form').on('submit', function(){
   
+      //this puts it into the object format required in the view
         var item = $('form input');
         var todo = {item: item.val()};
   
