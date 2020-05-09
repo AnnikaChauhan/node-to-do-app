@@ -1,8 +1,4 @@
-const bodyParser = require("body-parser");
-
 let data = [{item: 'Get Milk'}, {item: 'Walk Dog'}, {item: 'Code'}];
-
-var urlencodedParser = bodyParser.urlencoded({extended: false});
 
 module.exports = function(app){
 
@@ -10,13 +6,15 @@ module.exports = function(app){
         res.render('todo', {todos: data});
     });
 
-    app.post('/todo', urlencodedParser, (req,res) => {
+    app.post('/todo', (req,res) => {
         data.push(req.body);
-        res.json(data);
+        res.json({todos: data});
     });
 
-    app.delete('/todo', (req,res) => {
-
+    app.delete('/todo/:item', (req,res) => {
+        data = data.filter(function(todo){
+            return todo.item.replace(/ /g, "-") !== req.params.item;
+        });
+        res.json({todos: data});
     });
-
 }
