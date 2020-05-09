@@ -1,5 +1,5 @@
 body{
-    background: #0d1521;
+    background: #273549;
     font-family: tahoma;
     color: #989898;
 }
@@ -42,6 +42,10 @@ button{
     font-size: 20px;
 }
 
+button:hover {
+    color: orange;
+}
+
 ul{
     list-style-type: none;
     padding: 0;
@@ -64,7 +68,7 @@ li:hover{
 }
 
 h1{
-    background: url(/assets/logo.png) no-repeat center;
-    margin-bottom: 0;
-    text-indent: -10000px;
+    color: white;
+    padding: 5px;
+    text-align: center;
 }
